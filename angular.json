@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "course-ISDB-front"
+    }
+  },
+  "defaultProject": "course-ISDB-front",
+  "cli": {
+    "analytics": false
+  }
 }
