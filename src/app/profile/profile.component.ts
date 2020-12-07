@@ -3,10 +3,10 @@ import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
   items: MenuItem[];
 
