@@ -1,26 +1,47 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import {MatMenuItem} from '@angular/material/menu';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit{
   items: MenuItem[];
-
-  activeItem: MenuItem;
+  itemRight: MenuItem[];
 
   ngOnInit(): void {
     this.items = [
-      {label: 'Home', icon: 'pi pi-fw pi-home'},
-      {label: 'Calendar', icon: 'pi pi-fw pi-calendar'},
-      {label: 'Edit', icon: 'pi pi-fw pi-pencil'},
-      {label: 'Documentation', icon: 'pi pi-fw pi-file'},
-      {label: 'Settings', icon: 'pi pi-fw pi-cog'}
+      {
+        label: 'Расписание',
+        routerLink: ['/schedule']
+      },
+      {
+        label: 'Журнал',
+        routerLink: ['/magazine']
+
+       },
+      {
+        label: 'Управление',
+        routerLink: ['/managing'],
+
+      }
     ];
-
-    this.activeItem = this.items[0];
+    this.itemRight = [
+      {
+        label: '[2] Владимир П.П.',
+        items: [
+          {
+            label: 'Личный кабинет',
+            styleClass: 'submenu-item'
+          },
+          {
+            label: 'Выход',
+            styleClass: 'submenu-item'
+          }
+        ]
+      }
+      ];
   }
-
 }

@@ -1,13 +1,32 @@
-<div id="header">
-    <div class="container-header">
-      <div class="header-part header-part-left">
-        <div><a href="#" routerLink="schedule">Расписание</a></div>
-        <div><a href="#" routerLink="magazine">Журнал</a></div>
-        <div><a href="#" routerLink="managing">Управление</a></div>
-      </div>
+<!--<div id="header">-->
+<!--&lt;!&ndash;    <div class="container-header">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="header-part header-part-left">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div><a href="#" routerLink="schedule">Расписание</a></div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div><a href="#" routerLink="magazine">Журнал</a></div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div><a href="#" routerLink="managing">Управление</a></div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
 
-      <div class="header-part header-part-right">
-        <div>AAA</div>
-      </div>
-    </div>
-</div>
+<!--&lt;!&ndash;      <div class="header-part header-part-right">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div>AAA</div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+
+<!--</div>-->
+
+<p-menubar [model]="items">
+<!--  <div>-->
+<!--    <input type="text" pInputText placeholder="Search">-->
+<!--    <button type="button" pButton label="Logout" icon="pi pi-power-off" style="margin-left:.25em"></button>-->
+<!--  </div>-->
+  <!-- #docregion mat-menu-trigger-for -->
+
+  <button mat-button [matMenuTriggerFor]="menu">[2] Владимиров П.П.</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Личный кабинет</button>
+    <button mat-menu-item>Выход</button>
+  </mat-menu>
+</p-menubar>
+
+
+
