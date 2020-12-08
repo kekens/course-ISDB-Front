@@ -43,21 +43,21 @@ export const slideInAnimation =
         ], { optional: true }),
       ])
     ]),
-    transition('Profile => Auth', [
-      query(':enter, :leave',
-        style({ position: 'fixed', width: '100%' }),
-        { optional: true }),
-      group([
-        query(':enter', [
-          style({ right: '0%', bottom: '-100%' }),
-          animate('0.4s ease-in-out',
-            style({ bottom: '0%' }))
-        ], { optional: true }),
-        query(':leave', [
-          style({ right: '0%', bottom: '0%'}),
-          animate('0.4s ease-in-out',
-            style({ bottom: '100%' }))
-        ], { optional: true }),
-      ])
-    ])
+    // transition('* => *', [
+    //   query(':enter, :leave',
+    //     style({ position: 'fixed', width: '100%' }),
+    //     { optional: true }),
+    //   group([
+    //     query(':enter', [
+    //       style({ right: '0%', bottom: '-100%' }),
+    //       animate('0.4s ease-in-out',
+    //         style({ bottom: '0%' }))
+    //     ], { optional: true }),
+    //     query(':leave', [
+    //       style({ right: '0%', bottom: '0%'}),
+    //       animate('0.4s ease-in-out',
+    //         style({ bottom: '100%' }))
+    //     ], { optional: true }),
+    //   ])
+    // ])
   ]);
