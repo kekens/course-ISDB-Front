@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoginComponent } from './auth/login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { MagazineComponent } from './magazine/magazine.component';
@@ -11,6 +15,7 @@ import { ManagingComponent } from './managing/managing.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
@@ -23,6 +28,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     HeaderComponent,
     ProfileComponent,
+    HomeComponent,
+    AuthComponent,
+    LoginComponent,
+    NotFoundComponent,
     ScheduleComponent,
     MagazineComponent,
     ManagingComponent
@@ -33,6 +42,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MenubarModule,
     NgbModule,
     InputTextModule,
+    PasswordModule,
     ButtonModule,
     DropdownModule,
     FormsModule,

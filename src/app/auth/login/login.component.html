@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div class="container-form container-sign-in" id="container-sign-in">
+
+  <div class="container-form-tittle">
+    <span>Вход</span>
+  </div>
+
+  <form class="form-auth" novalidate>
+    <span class="p-input-icon-left">
+          <i class="pi pi-user"></i>
+          <input maxlength="16" type="text" pInputText placeholder="Имя пользователя">
+    </span>
+
+<!--    <span>-->
+<!--      Введите имя пользователя <br> (3-16 знаков, только лат. символы)-->
+<!--    </span>-->
+<!--    <span>-->
+<!--      Пользователь не существует-->
+<!--    </span>-->
+
+    <span style="margin-top: 8px;" class="p-input-icon-left">
+      <i class="pi pi-lock"></i>
+      <input type="password" pPassword placeholder="Пароль">
+    </span>
+<!--    <span class="error-msg">-->
+<!--      Введите пароль (8-20 знаков)-->
+<!--    </span>-->
+
+    <button class="button-auth" routerLink="../profile" style="width: 70%;">Войти</button>
+
+  </form>
+</div>
+
+</body>
+</html>
