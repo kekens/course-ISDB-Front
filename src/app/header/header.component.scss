@@ -1,16 +1,34 @@
-::ng-deep .p-menubar {
-  background-color: #000000;
-  background-image: linear-gradient(315deg, #000000 0%, #333333 74%);
-  height: 7%;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 0;
-}
+#header {
 
-::ng-deep .p-menuitem-link:hover {
-  background: none !important;
-  outline: none !important;
-  border: none !important;
+  height: 7%;
+
+  ::ng-deep .p-menubar {
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #333333 74%);
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0;
+  }
+
+  ::ng-deep .p-menuitem-link:hover {
+    background: none !important;
+    outline: none !important;
+    border: none !important;
+  }
+
+  ::ng-deep .p-menuitem-text, .mat-button {
+    color: white !important;
+    font-family: 'Comfortaa', sans-serif !important;
+    font-size: 24px !important;
+    transition: 0.2s ease-in-out;
+  }
+
+  ::ng-deep .p-menuitem:hover {
+    ::ng-deep .p-menuitem-text {
+      color: #D4A439 !important;
+    }
+  }
+
 }
 
 ::ng-deep .mat-menu-item {
@@ -18,41 +36,10 @@
   font-size: 18px !important;
 }
 
-::ng-deep .p-menuitem-text, .mat-button {
-  color: white !important;
-  font-family: 'Comfortaa', sans-serif !important;
-  font-size: 22px !important;
-  transition: 0.2s ease-in-out;
-}
-
 ::ng-deep .mat-button:hover {
-  color: darkgrey !important;
+  color: #D4A439 !important;
 }
 
 ::ng-deep .mat-menu-content, .mat-button {
-  width: 280px !important; // as you wish
-  //height: 200px !important; // as you wish
-}
-::ng-deep .p-menuitem:hover {
-  ::ng-deep .p-menuitem-text {
-    color: darkgrey !important;
-  }
-}
-
-.header-part {
-  display: flex;
-  justify-content: space-between;
-  color: white;
-
-  div {
-    padding: 0 20px;
-  }
-}
-
-.header-part-left {
-
-}
-
-.header-part-right {
-
+  width: 280px !important;
 }
