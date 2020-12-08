@@ -12,7 +12,7 @@
     <span>Вход</span>
   </div>
 
-  <form class="form-auth" novalidate>
+  <form class="form-auth" (ngSubmit)="onSubmit()" novalidate>
     <span class="p-input-icon-left">
           <i class="pi pi-user"></i>
           <input maxlength="16" type="text" pInputText placeholder="Имя пользователя">
@@ -33,7 +33,7 @@
 <!--      Введите пароль (8-20 знаков)-->
 <!--    </span>-->
 
-    <button class="button-auth" routerLink="../profile" style="width: 70%;">Войти</button>
+    <button class="button-auth" type="submit" style="width: 70%;">Войти</button>
 
   </form>
 </div>
