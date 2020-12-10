@@ -12,9 +12,9 @@ const routes: Routes = [
   { path: '', component: HomeComponent, data: { animation: 'Home'} },
   { path: 'auth', component: AuthComponent, data: { animation: 'Auth'} },
   { path: 'profile', component: ProfileComponent, data: { animation: 'Profile' } },
-  { path: 'schedule', component: ScheduleComponent },
-  { path: 'magazine', component: MagazineComponent },
-  { path: 'managing', component: ManagingComponent },
+  { path: 'schedule', component: ScheduleComponent, data: { animation: 'Schedule'} },
+  { path: 'magazine', component: MagazineComponent, data: { animation: 'Magazine'} },
+  { path: 'managing', component: ManagingComponent, data: { animation: 'Managing'} },
   { path: '**', component: NotFoundComponent }
 ];
 
