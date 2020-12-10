@@ -25,6 +25,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TabMenuModule} from 'primeng/tabmenu';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import { DialogModule } from 'primeng/dialog';
+import { TableModule } from 'primeng/table';
+
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  timeGridPlugin,
+  interactionPlugin
+])
 
 @NgModule({
   declarations: [
@@ -54,7 +66,10 @@ import { MessageModule } from 'primeng/message';
     BrowserAnimationsModule,
     TabMenuModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    FullCalendarModule,
+    DialogModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]
