@@ -18,7 +18,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,6 +31,9 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { DialogModule } from 'primeng/dialog';
 import { TableModule } from 'primeng/table';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientInterceptor } from './http-client-interceptor';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -61,6 +64,7 @@ FullCalendarModule.registerPlugins([
     ButtonModule,
     DropdownModule,
     FormsModule,
+    ReactiveFormsModule,
     MatMenuModule,
     MatButtonModule,
     BrowserAnimationsModule,
@@ -69,9 +73,11 @@ FullCalendarModule.registerPlugins([
     MessageModule,
     FullCalendarModule,
     DialogModule,
-    TableModule
+    TableModule,
+    NgxWebstorageModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true } ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

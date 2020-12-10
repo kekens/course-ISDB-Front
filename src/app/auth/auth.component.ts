@@ -10,5 +10,4 @@ export class AuthComponent {
   public constructor(private titleService: Title) {
     this.titleService.setTitle('Authentication');
   }
-
 }

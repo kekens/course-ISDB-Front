@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400&display=swap');
 
+input.ng-touched.ng-invalid { border:solid red 2px; }
+input.ng-touched.ng-valid { border:solid green 2px; }
+
 $animation_time: 0.25s;
 
 * {
   box-sizing: border-box;
 }
-
-input.ng-touched.ng-invalid { border:solid red 2px; }
-input.ng-touched.ng-valid { border:solid green 2px; }
 
 //фон
 #content {

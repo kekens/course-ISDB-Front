@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {MatMenuItem} from '@angular/material/menu';
+import {LocalStorageService} from 'ngx-webstorage';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +11,13 @@ import {MatMenuItem} from '@angular/material/menu';
 export class HeaderComponent implements OnInit{
   items: MenuItem[];
   itemRight: MenuItem[];
+  minerId: number;
+
+  constructor(private localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {
+    this.minerId = this.localStorageService.retrieve('id');
+
     this.items = [
       {
         label: 'Расписание',

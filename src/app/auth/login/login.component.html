@@ -12,10 +12,10 @@
     <span>Вход</span>
   </div>
 
-  <form class="form-auth" (ngSubmit)="onSubmit()" novalidate>
+  <form class="form-auth" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
     <span class="p-input-icon-left">
           <i class="pi pi-user"></i>
-          <input maxlength="16" type="text" pInputText placeholder="Имя пользователя">
+          <input maxlength="16" formControlName="username" type="text" pInputText placeholder="Имя пользователя">
     </span>
 
 <!--    <span>-->
@@ -27,7 +27,7 @@
 
     <span style="margin-top: 8px;" class="p-input-icon-left">
       <i class="pi pi-lock"></i>
-      <input type="password" pPassword placeholder="Пароль">
+      <input type="password" formControlName="password" pPassword placeholder="Пароль">
     </span>
 <!--    <span class="error-msg">-->
 <!--      Введите пароль (8-20 знаков)-->

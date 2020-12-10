@@ -3,7 +3,7 @@
     <ng-template pTemplate="start">
       <img src="../../assets/images/logo.png" height="55" width="85">
     </ng-template>
-    <button mat-button [matMenuTriggerFor]="menu">[2] Владимиров П.П.</button>
+    <button mat-button [matMenuTriggerFor]="menu">[{{ minerId }}] Владимиров П.П.</button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item routerLink="/profile">Личный кабинет</button>
       <button mat-menu-item routerLink="../auth">Выход</button>
