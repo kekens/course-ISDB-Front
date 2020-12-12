@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import { MenuItem, Message, MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 import {animate, sequence, style, transition, trigger} from '@angular/animations';
+import {MinerModel} from '../model/miner.model';
+import {MinerService} from '../service/miner.service';
+import {LocalStorageService} from 'ngx-webstorage';
 
 @Component({
   selector: 'app-profile',
@@ -26,24 +29,38 @@ export class ProfileComponent implements OnInit {
 
   msgs1: Message[];
 
-  constructor(private primengConfig: PrimeNGConfig) {}
+  miner: MinerModel;
+  part: string;
+  brigadeId: number;
+
+  constructor(private primengConfig: PrimeNGConfig, private minerService: MinerService,
+              private localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {
+
+    this.minerService.getMiner(this.localStorageService.retrieve('minerId')).subscribe((minerData:MinerModel) => {
+      this.miner = minerData;
+      console.log(this.miner.minerId);
+    });
+
+    this.part = this.localStorageService.retrieve('part');
+    this.brigadeId = this.localStorageService.retrieve('brigadeId');
+
     // TabMenu
     this.items = [
       {label: 'О себе', icon: 'pi pi-fw pi-user',
-        command: (event: any) => {
+        command: () => {
           this.activeItem = this.items[0];
           console.log(this.activeItem.label);
         }
       },
       {label: 'Дополнительная информация', icon: 'pi pi-fw pi-info',
-        command: (event: any) => {
+        command: () => {
           this.activeItem = this.items[1];
           console.log(this.activeItem.label);
         }},
       {label: 'Сообщения', icon: 'pi pi-fw pi-envelope',
-        command: (event: any) => {
+        command: () => {
           this.activeItem = this.items[2];
           console.log(this.activeItem.label);
         }},

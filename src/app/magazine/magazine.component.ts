@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ReceiveMinerService} from '../managing/receive-miner.service';
-import {ReceiveMinerModel} from '../managing/receive-miner.model';
+import {ReceiveMinerService} from '../service/receive-miner.service';
+import {ReceiveMinerModel} from '../model/receive-miner.model';
 
 @Component({
   selector: 'app-magazine',
@@ -24,8 +24,8 @@ export class MagazineComponent implements OnInit {
   ];
   cols: any[];
 
-  constructor(private receivingMinerService: ReceiveMinerService) {
-  }
+  // constructor(private receivingMinerService: ReceiveMinerService) {
+  // }
 
   ngOnInit() {
 

@@ -1,7 +1,7 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { CalendarOptions, FullCalendarComponent } from '@fullcalendar/angular';
-import { DeliveryMinerModel } from './delivery-miner.model';
-import {DeliveryMinerService} from './delivery-miner.service';
+import { DeliveryMinerModel } from '../model/delivery-miner.model';
+import {DeliveryMinerService} from '../service/delivery-miner.service';
 
 
 @Component({
@@ -28,8 +28,8 @@ export class ScheduleComponent implements OnInit {
   ];
   cols: any[];
 
-  constructor(private deliveryMinerService: DeliveryMinerService) {
-  }
+  // constructor(private deliveryMinerService: DeliveryMinerService) {
+  // }
 
   ngOnInit() {
 
