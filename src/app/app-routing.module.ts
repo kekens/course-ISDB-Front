@@ -7,14 +7,15 @@ import { ManagingComponent } from './managing/managing.component';
 import {HomeComponent} from './home/home.component';
 import {AuthComponent} from './auth/auth.component';
 import {NotFoundComponent} from './not-found/not-found.component';
+import {AuthGuard} from './auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { animation: 'Home'} },
-  { path: 'auth', component: AuthComponent, data: { animation: 'Auth'} },
-  { path: 'profile', component: ProfileComponent, data: { animation: 'Profile' } },
-  { path: 'schedule', component: ScheduleComponent, data: { animation: 'Schedule'} },
-  { path: 'magazine', component: MagazineComponent, data: { animation: 'Magazine'} },
-  { path: 'managing', component: ManagingComponent, data: { animation: 'Managing'} },
+  { path: 'auth', component: AuthComponent, data: { animation: 'Auth'}, canActivate: [ AuthGuard ] },
+  { path: 'profile', component: ProfileComponent, data: { animation: 'Profile' }, canActivate: [ AuthGuard ] },
+  { path: 'schedule', component: ScheduleComponent, data: { animation: 'Schedule'}, canActivate: [ AuthGuard ] },
+  { path: 'magazine', component: MagazineComponent, data: { animation: 'Magazine'}, canActivate: [ AuthGuard ] },
+  { path: 'managing', component: ManagingComponent, data: { animation: 'Managing'}, canActivate: [ AuthGuard ] },
   { path: '**', component: NotFoundComponent }
 ];
 
