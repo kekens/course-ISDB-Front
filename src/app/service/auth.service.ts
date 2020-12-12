@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthModel } from './auth.model';
+import { AuthModel } from '../model/auth.model';
 import { Observable } from 'rxjs';
-import { JwtAuthResponseModel } from './jwt-auth-response.model';
+import { JwtAuthResponseModel } from '../model/jwt-auth-response.model';
 import { map } from 'rxjs/operators';
 import { LocalStorageService } from 'ngx-webstorage';
 
@@ -20,9 +20,11 @@ export class AuthService {
       if ((data.authenticationToken == "") && (data.username == "")) {
         return false;
       } else {
-        this.localStorageService.store('id', data.id);
         this.localStorageService.store('authenticationToken', data.authenticationToken);
+        this.localStorageService.store('minerId', data.minerId);
         this.localStorageService.store('username', data.username);
+        this.localStorageService.store('part', data.part);
+        this.localStorageService.store('brigadeId', data.brigadeId);
         return true;
       }
     }));
@@ -34,7 +36,10 @@ export class AuthService {
 
   logout() {
     this.localStorageService.clear('authenticationToken');
+    this.localStorageService.clear('minerId');
     this.localStorageService.clear('username');
+    this.localStorageService.clear('part');
+    this.localStorageService.clear('brigadeId');
   }
 
 }

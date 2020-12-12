@@ -15,25 +15,26 @@
   <form class="form-auth" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
     <span class="p-input-icon-left">
           <i class="pi pi-user"></i>
-          <input maxlength="16" formControlName="username" type="text" pInputText placeholder="Имя пользователя">
+          <input (ngModelChange)="setValid()" maxlength="16" formControlName="username"  type="text" pInputText placeholder="Имя пользователя">
     </span>
 
-<!--    <span>-->
-<!--      Введите имя пользователя <br> (3-16 знаков, только лат. символы)-->
-<!--    </span>-->
-<!--    <span>-->
-<!--      Пользователь не существует-->
-<!--    </span>-->
+    <span *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].touched ? setValid() : false" class="error-msg">
+      Введите имя пользователя <br> (3-16 знаков, только лат. символы)
+    </span>
+    <span *ngIf="!isUserExist && loginForm.controls['username'].untouched" class="error-msg">
+      Пользователь не существует
+    </span>
 
     <span style="margin-top: 8px;" class="p-input-icon-left">
       <i class="pi pi-lock"></i>
-      <input type="password" formControlName="password" pPassword placeholder="Пароль">
+      <input (ngModelChange)="setValid()" maxlength="20" formControlName ="password" type="password" pPassword placeholder="Пароль">
     </span>
-<!--    <span class="error-msg">-->
-<!--      Введите пароль (8-20 знаков)-->
-<!--    </span>-->
+    <span *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched ? setValid() : false" class="error-msg">
+      Введите пароль (8-20 знаков)
+    </span>
 
-    <button class="button-auth" type="submit" style="width: 70%;">Войти</button>
+    <button style="width: 70%;" type="submit" [disabled]="isInvalid"
+            [style.background]="isInvalid ? 'lightgray' : 'white'" [class]="isInvalid ? 'disabled-button' : 'button-auth'">Войти</button>
 
   </form>
 </div>

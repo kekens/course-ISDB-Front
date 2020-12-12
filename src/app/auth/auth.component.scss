@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400&display=swap');
 
-input.ng-touched.ng-invalid { border:solid red 2px; }
-input.ng-touched.ng-valid { border:solid green 2px; }
+input.ng-touched.ng-invalid { border:solid red 2px !important; }
+input.ng-touched.ng-valid { border:solid green 2px !important; }
 
 $animation_time: 0.25s;
 
@@ -75,9 +75,6 @@ $animation_time: 0.25s;
     width: 100%;
   }
 }
-
-
-
 
 //ошибки
 .error-msg {
@@ -201,6 +198,7 @@ $animation_time: 0.25s;
   padding: 12px 45px;
   letter-spacing: 1px;
   transition: all 80ms ease-in;
+  margin-top: 40px;
 }
 
 

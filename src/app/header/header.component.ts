@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
-import {MatMenuItem} from '@angular/material/menu';
 import {LocalStorageService} from 'ngx-webstorage';
+import {AuthService} from '../service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,13 +10,16 @@ import {LocalStorageService} from 'ngx-webstorage';
 })
 export class HeaderComponent implements OnInit{
   items: MenuItem[];
-  itemRight: MenuItem[];
   minerId: number;
+  username: string;
+  part: string;
 
-  constructor(private localStorageService: LocalStorageService) {}
+  constructor(private localStorageService: LocalStorageService, private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.minerId = this.localStorageService.retrieve('id');
+    this.minerId = this.localStorageService.retrieve('minerId');
+    this.username = this.localStorageService.retrieve('username');
+    this.part = this.localStorageService.retrieve('part');
 
     this.items = [
       {
@@ -31,23 +34,12 @@ export class HeaderComponent implements OnInit{
       {
         label: 'Управление',
         routerLink: ['/managing'],
-
+        visible: this.part == 'БРИГАДИР'
       }
     ];
-    this.itemRight = [
-      {
-        label: '[2] Владимир П.П.',
-        items: [
-          {
-            label: 'Личный кабинет',
-            styleClass: 'submenu-item'
-          },
-          {
-            label: 'Выход',
-            styleClass: 'submenu-item'
-          }
-        ]
-      }
-      ];
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }

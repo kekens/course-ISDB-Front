@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthModel} from '../auth.model';
-import {AuthService} from '../auth.service';
+import {AuthModel} from '../../model/auth.model';
+import {AuthService} from '../../service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -49,6 +49,8 @@ export class LoginComponent {
           this.loginForm.controls['username'].setErrors({ 'invalid': true });
           this.loginForm.controls['username'].markAsUntouched();
           this.loginForm.controls['password'].markAsUntouched();
+          this.loginForm.get('username').reset();
+          this.loginForm.get('password').reset();
           console.log("login failed");
         }
       });

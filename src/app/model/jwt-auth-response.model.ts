@@ -1,5 +1,7 @@
 export class JwtAuthResponseModel {
-  id: number;
   authenticationToken: string;
+  minerId: number
   username: string;
+  part: string;
+  brigadeId: number;
 }
