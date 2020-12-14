@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +34,7 @@ import { TableModule } from 'primeng/table';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpClientInterceptor } from './http-client-interceptor';
+import { ToastModule } from 'primeng/toast';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -75,9 +76,10 @@ FullCalendarModule.registerPlugins([
     DialogModule,
     TableModule,
     NgxWebstorageModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    ToastModule
   ],
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true } ],
+  providers: [ Title, { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true } ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

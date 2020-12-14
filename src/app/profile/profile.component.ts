@@ -5,6 +5,7 @@ import {animate, sequence, style, transition, trigger} from '@angular/animations
 import {MinerModel} from '../model/miner.model';
 import {MinerService} from '../service/miner.service';
 import {LocalStorageService} from 'ngx-webstorage';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -34,7 +35,9 @@ export class ProfileComponent implements OnInit {
   brigadeId: number;
 
   constructor(private primengConfig: PrimeNGConfig, private minerService: MinerService,
-              private localStorageService: LocalStorageService) {}
+              private localStorageService: LocalStorageService, private titleService: Title) {
+    this.titleService.setTitle('Profile');
+  }
 
   ngOnInit(): void {
 

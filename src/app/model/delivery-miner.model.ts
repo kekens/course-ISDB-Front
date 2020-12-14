@@ -1,5 +1,5 @@
 export class DeliveryMinerModel {
-  id: number;
+  minerid: number;
   name: string;
   part: string;
 }
