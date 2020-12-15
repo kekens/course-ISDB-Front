@@ -25,7 +25,6 @@ export class ScheduleComponent implements OnInit {
   calendarOptions: CalendarOptions;
   part: string;
   cols: any[];
-  errorMsg: string;
 
   constructor(private scheduleService: ScheduleService, private minerService: MinerService,
               private localStorageService: LocalStorageService, private deliveryService: DeliveryMinerService,
@@ -33,8 +32,12 @@ export class ScheduleComponent implements OnInit {
     this.titleService.setTitle('Schedule');
   }
 
-  addSingle() {
-    this.messageService.add({severity:'success', summary:'Service Message', detail:'Via MessageService'});
+  addSuccess() {
+    this.messageService.add({severity: 'success', summary: 'Успех', detail: 'Оборудование выдано', life: 5000 });
+  }
+
+  addError(errorMsg: string) {
+    this.messageService.add({severity: 'error', summary: 'Ошибка', detail: errorMsg, life: 5000 });
   }
 
   ngOnInit() {
@@ -67,7 +70,6 @@ export class ScheduleComponent implements OnInit {
 
     this.minerService.getMinersDelivery(this.localStorageService.retrieve('brigadeId')).subscribe(minerDeliveryArray => {
       this.minerDeliveryResponses = minerDeliveryArray;
-      console.log(this.minerDeliveryResponses);
       this.minerDeliveryResponses.forEach(function(value) {
         value.part = value.part.charAt(0) + value.part.substr(1).toLowerCase();
       })
@@ -97,9 +99,10 @@ export class ScheduleComponent implements OnInit {
     const arrayOfMinerId: number[] = this.minerDeliveryResponses.map(x=>x.minerId);
     this.deliveryService.doDelivery(minerId).subscribe(data => {
       this.minerDeliveryResponses.splice(arrayOfMinerId.indexOf(minerId), 1);
+      this.addSuccess();
     }, error => {
-      console.log(error.error);
-      this.errorMsg = error.error;
+      console.log(error);
+      this.addError(error);
     });
   }
 
