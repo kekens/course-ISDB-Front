@@ -15,12 +15,10 @@ export class AuthGuard implements CanActivate {
     let isAuthenticated = this.authService.isAuthenticated();
     // console.log(isAuthenticated);
     if (isAuthenticated) {
-      console.log(route.url.toString());
       if (route.url.toString() == 'auth') {
         this.router.navigateByUrl('/profile');
         // return false;
       } else {
-        console.log(route.url.toString());
         return true;
       }
       // return true;
