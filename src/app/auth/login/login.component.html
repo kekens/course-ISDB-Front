@@ -22,7 +22,7 @@
       Введите имя пользователя <br> (3-16 знаков, только лат. символы)
     </span>
     <span *ngIf="!isUserExist && loginForm.controls['username'].untouched" class="error-msg">
-      Пользователь не существует
+      Неправильные данные
     </span>
 
     <span style="margin-top: 8px;" class="p-input-icon-left">
