@@ -6,6 +6,8 @@ import {MinerModel} from '../model/miner.model';
 import {MinerService} from '../service/miner.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import { Title } from '@angular/platform-browser';
+import {MessageMinerService} from '../service/message-miner.service';
+import {MessageMinerModel} from '../model/message-miner.model';
 
 @Component({
   selector: 'app-profile',
@@ -28,14 +30,16 @@ export class ProfileComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
 
-  msgs1: Message[];
+  profileMessages: Message[];
+  minerMessages: MessageMinerModel[];
 
   miner: MinerModel;
   part: string;
   brigadeId: number;
 
   constructor(private primengConfig: PrimeNGConfig, private minerService: MinerService,
-              private localStorageService: LocalStorageService, private titleService: Title) {
+              private localStorageService: LocalStorageService, private titleService: Title,
+              private messageMinerService: MessageMinerService) {
     this.titleService.setTitle('Profile');
   }
 
@@ -70,14 +74,19 @@ export class ProfileComponent implements OnInit {
     ];
 
     this.activeItem = this.items[0];
+    this.profileMessages = [];
 
-    // Messages
-    this.msgs1 = [
-      {severity: 'success', summary: 'Success', detail: 'Message Content'},
-      {severity: 'info', summary: 'Info', detail: 'Message Content'},
-      {severity: 'warn', summary: 'Warning', detail: 'Message Content'},
-      {severity: 'error', summary: 'Error', detail: 'Message Content'}
-    ];
+
+    this.messageMinerService.getMinerMessages(this.localStorageService.retrieve('minerId')).subscribe( messageMinerArray => {
+      this.minerMessages = messageMinerArray;
+
+      this.minerMessages.forEach(msg => {
+        let profMsg = {
+          severity: msg.status.toLowerCase(), summary: '', detail: msg.description
+        };
+        this.profileMessages.push(profMsg);
+      });
+    });
 
     this.primengConfig.ripple = true;
   }

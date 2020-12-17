@@ -8,6 +8,8 @@ import {MinerDeliveryResponseModel} from '../model/miner-delivery-response.model
 import {DeliveryMinerService} from '../service/delivery-miner.service';
 import {MessageService} from 'primeng/api';
 import { Title } from '@angular/platform-browser';
+import {MessageMinerService} from '../service/message-miner.service';
+import {MessageMinerModel} from '../model/message-miner.model';
 
 @Component({
   selector: 'app-schedule',
@@ -25,15 +27,22 @@ export class ScheduleComponent implements OnInit {
   calendarOptions: CalendarOptions;
   part: string;
   cols: any[];
+  messageMinerModel: MessageMinerModel;
 
   constructor(private scheduleService: ScheduleService, private minerService: MinerService,
               private localStorageService: LocalStorageService, private deliveryService: DeliveryMinerService,
-              private messageService: MessageService, private titleService: Title) {
+              private messageService: MessageService, private messageMinerService: MessageMinerService,
+              private titleService: Title) {
     this.titleService.setTitle('Schedule');
+    this.messageMinerModel = {
+      minerId: 0,
+      status: '',
+      description: ''
+    }
   }
 
-  addSuccess() {
-    this.messageService.add({severity: 'success', summary: 'Успех', detail: 'Оборудование выдано', life: 5000 });
+  addSuccess(successMsg: string) {
+    this.messageService.add({severity: 'success', summary: 'Успех', detail: successMsg, life: 5000 });
   }
 
   addError(errorMsg: string) {
@@ -99,7 +108,17 @@ export class ScheduleComponent implements OnInit {
     const arrayOfMinerId: number[] = this.minerDeliveryResponses.map(x=>x.minerId);
     this.deliveryService.doDelivery(minerId).subscribe(data => {
       this.minerDeliveryResponses.splice(arrayOfMinerId.indexOf(minerId), 1);
-      this.addSuccess();
+      this.addSuccess(data);
+      console.log(data);
+
+      this.messageMinerModel.minerId = minerId;
+      this.messageMinerModel.status = 'INFO';
+      this.messageMinerModel.description = 'Вам выдали оборудование';
+      this.messageMinerService.addMessage(this.messageMinerModel).subscribe(data => {
+        console.log("Message was sent");
+      }, error => {
+        console.log("Failure! Message wasn't sent")
+      });
     }, error => {
       console.log(error);
       this.addError(error);
