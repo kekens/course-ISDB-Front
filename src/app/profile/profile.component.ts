@@ -55,7 +55,7 @@ export class ProfileComponent implements OnInit {
 
     // TabMenu
     this.items = [
-      {label: 'О себе', icon: 'pi pi-fw pi-user',
+      {label: 'О себе', icon: 'pi pi-fw pi-user', badge: 'FFF',
         command: () => {
           this.activeItem = this.items[0];
           console.log(this.activeItem.label);
@@ -70,7 +70,8 @@ export class ProfileComponent implements OnInit {
         command: () => {
           this.activeItem = this.items[2];
           console.log(this.activeItem.label);
-        }},
+        } }
+
     ];
 
     this.activeItem = this.items[0];

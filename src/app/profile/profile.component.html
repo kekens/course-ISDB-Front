@@ -4,7 +4,15 @@
 
 <!--    Контейнер для таб-меню-->
     <div class="container-tab-menu">
-      <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+      <p-tabMenu [model]="items" [activeItem]="activeItem">
+        <ng-template pTemplate="item" let-item let-i="index">
+          <span class="{{ item.icon }}"></span>
+          <span class="p-menuitem-text">{{ item.label }}</span>
+          <span *ngIf="item.label == 'Сообщения' && profileMessages.length != 0"
+                class="p-badge p-badge-danger">{{ profileMessages.length }}</span>
+        </ng-template>
+
+      </p-tabMenu>
     </div>
 
 <!--    Контейнер для фотографии и информации-->
@@ -34,7 +42,6 @@
 
       <div *ngIf="activeItem.label == 'Сообщения'" class="messages">
         <p-messages [(value)]="profileMessages" [enableService]="false"></p-messages>
-
       </div>
 
     </div>

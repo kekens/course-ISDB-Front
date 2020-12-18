@@ -77,6 +77,18 @@
     color: black !important;
     font-size: 24px;
     font-family: 'Comfortaa', sans-serif !important;
+    margin-left: 3px;
+  }
+
+  ::ng-deep {
+    .p-badge-danger {
+      position: relative;
+      top: -10px;
+      left: 2px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: 'Comfortaa', sans-serif !important;
+    }
   }
 
 }
