@@ -29,8 +29,11 @@ export class HeaderComponent implements OnInit{
       {
         label: 'Журнал',
         routerLink: ['/magazine']
-
-       },
+      },
+      {
+        label: 'Добыча',
+        routerLink: ['/mining']
+      },
       {
         label: 'Управление',
         routerLink: ['/managing'],

@@ -8,6 +8,7 @@ import {HomeComponent} from './home/home.component';
 import {AuthComponent} from './auth/auth.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {AuthGuard} from './auth.guard';
+import {MiningComponent} from './mining/mining.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { animation: 'Home'} },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'schedule', component: ScheduleComponent, data: { animation: 'Schedule'}, canActivate: [ AuthGuard ] },
   { path: 'magazine', component: MagazineComponent, data: { animation: 'Magazine'}, canActivate: [ AuthGuard ] },
   { path: 'managing', component: ManagingComponent, data: { animation: 'Managing'}, canActivate: [ AuthGuard ] },
+  { path: 'mining', component: MiningComponent, data: { animation: 'Mining'}, canActivate: [ AuthGuard ]},
   { path: '**', component: NotFoundComponent }
 ];
 

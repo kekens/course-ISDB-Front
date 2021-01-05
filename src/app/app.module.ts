@@ -35,6 +35,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpClientInterceptor } from './http-client-interceptor';
 import { ToastModule } from 'primeng/toast';
+import { MiningComponent } from './mining/mining.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -53,7 +54,8 @@ FullCalendarModule.registerPlugins([
     NotFoundComponent,
     ScheduleComponent,
     MagazineComponent,
-    ManagingComponent
+    ManagingComponent,
+    MiningComponent
   ],
   imports: [
     BrowserModule,

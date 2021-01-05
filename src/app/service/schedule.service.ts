@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {ScheduleModel} from '../model/schedule.model';
-import {MinerDeliveryResponseModel} from '../model/miner-delivery-response.model';
 
 @Injectable({
   providedIn: 'root'
