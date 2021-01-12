@@ -1,27 +1,24 @@
 <app-header></app-header>
 <div id="content">
   <div class = "container-txt">
-    <span text>Состав 3 бригады:</span>
+    <span text>Состав {{ brigadeId }} бригады:</span>
   </div>
   <div class="container-tab-mark">
+<!--     <form (ngSubmit)="DeleteSubmit()">-->
     <table>
       <tr>
         <th>Номер нахтера</th>
         <th>Имя</th>
         <th>Роль</th>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>Иван</td>
-        <td>Бурильщик</td>
+      <tr *ngFor="let mg of managing">
+        <td>{{mg.minerId}}</td>
+        <td>{{mg.name}}</td>
+        <td>{{mg.part}}</td>
+        <td><button (click)="deleteSubmit(mg.minerId)" type ="reset" onclick="window.location.reload();">&times;</button></td>
       </tr>
-      <tr>
-        <td>2</td>
-        <td>Дмитрий</td>
-        <td>Копатель</td>
-      </tr>
-
     </table>
+<!--     </form>-->
   </div>
   <div class="container-txt">
     <span>Свободные шахтеры:</span>
@@ -36,22 +33,22 @@
         <th>Вес</th>
         <th>Группа здоровья</th>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>Иван</td>
-        <td>22</td>
-        <td>180</td>
-        <td>70</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Иван</td>
-        <td>22</td>
-        <td>180</td>
-        <td>70</td>
-        <td>5</td>
-      </tr>
+<!--      <tr>-->
+<!--        <td>1</td>-->
+<!--        <td>Иван</td>-->
+<!--        <td>22</td>-->
+<!--        <td>180</td>-->
+<!--        <td>70</td>-->
+<!--        <td>5</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td>1</td>-->
+<!--        <td>Иван</td>-->
+<!--        <td>22</td>-->
+<!--        <td>180</td>-->
+<!--        <td>70</td>-->
+<!--        <td>5</td>-->
+<!--      </tr>-->
     </table>
   </div>
 

@@ -3,6 +3,15 @@
   background-size: 100%;
 }
 
+.deletebtn {
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+.deletebtn:hover {
+  color: #D4A439;
+}
+
 input {
   border: 1px solid black;
   border-radius: 18px;
@@ -12,19 +21,31 @@ input {
   font-size: 28px;
 }
 span {
-  color: black !important;
+  color: black;
   font-size: 28px;
   font-family: 'Comfortaa', sans-serif !important;
 }
 
+//button{
+//  border-radius: 18px;
+//  height: 50px;
+//  width: auto;
+//  background-color: white;
+//  border: 1px solid black;
+//  font-size: 21px;
+//  margin-left: 530px;
+//}
+
 button{
-  border-radius: 18px;
-  height: 50px;
-  width: auto;
   background-color: white;
-  border: 1px solid black;
-  font-size: 21px;
-  margin-left: 530px;
+  border: 0;
+  padding: 0;
+}
+
+
+
+button:hover{
+  color: #D4A439;
 }
 
 .container-txt{
@@ -53,5 +74,7 @@ button{
     color: #666666;
     font-family: 'Comfortaa';
   }
+
+
 
 }
