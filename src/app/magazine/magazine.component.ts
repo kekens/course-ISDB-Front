@@ -62,7 +62,7 @@ export class MagazineComponent implements OnInit {
       minerId: 0,
       brigadeId: 0,
       part: '',
-      date_work: '',
+      dateWork: '',
       rating: 0,
 
     }
@@ -113,15 +113,14 @@ export class MagazineComponent implements OnInit {
     this.magazineModel.part = part;
     this.magazineModel.brigadeId = this.brigadeId;
     this.magazineModel.rating = this.ratingValue.value;
-    this.magazineModel.date_work = this.myFormattedDate; // todo: Вставлять дату
+    this.magazineModel.dateWork = this.myFormattedDate; // todo: Вставлять дату
 
-    console.log(this.magazineModel.date_work)
+    console.log(this.magazineModel.dateWork)
 
 
     this.magazineService.addMagazine(this.magazineModel).subscribe( data => {
       this.magazine.push(data);
     });
-
 
 
   }

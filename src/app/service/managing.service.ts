@@ -3,6 +3,9 @@ import {HttpClient} from "@angular/common/http";
 import {LocalStorageService} from "ngx-webstorage";
 import {Observable} from "rxjs";
 import {ManagingModel} from "../model/managing.model";
+import {MinerModel} from "../model/miner.model";
+import {BrigadeModel} from "../model/brigade.model";
+import {MagazineModel} from "../model/magazine.model";
 
 
 @Injectable({
@@ -24,4 +27,14 @@ export class ManagingService{
     return this.httpClient.get(this.url+'delete/'+ minerId)
   }
 
+
+  getAllMiners(): Observable<Array<MinerModel>>
+  {
+    return this.httpClient.get<Array<MinerModel>>(this.url+'miners/')
+  }
+
+
+  addBrigade(brigadeModel : BrigadeModel): Observable<BrigadeModel>{
+    return this.httpClient.post<BrigadeModel>(this.url + 'add/', brigadeModel);
+  }
 }

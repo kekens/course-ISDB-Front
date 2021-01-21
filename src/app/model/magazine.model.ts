@@ -3,6 +3,6 @@ export class MagazineModel {
   minerId: number;
   brigadeId: number;
   part: string;
-  date_work: string;
+  dateWork: string;
   rating: number;
 }
