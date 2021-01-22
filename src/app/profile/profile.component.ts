@@ -83,7 +83,8 @@ export class ProfileComponent implements OnInit {
 
       this.minerMessages.forEach(msg => {
         let profMsg = {
-          severity: msg.status.toLowerCase(), summary: '', detail: msg.description
+          severity: msg.status.toLowerCase(), summary: '', detail: msg.description,
+          closable: false
         };
         this.profileMessages.push(profMsg);
       });

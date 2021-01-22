@@ -54,10 +54,11 @@ export class ScheduleComponent implements OnInit {
     this.scheduleService.getSchedule(this.localStorageService.retrieve('brigadeId')).subscribe(scheduleArray => {
       this.schedule = scheduleArray;
       this.schedule.forEach(sch => {
+        let month = new Date(sch.workDate).getMonth() + 1;
+        let strMonth = month < 10 ? '0' + month : month;
         let calendarevent = {
           title: 'Шахта ' + sch.mineName,
-          start: new Date(sch.workDate).getFullYear() + '-' + (new Date(sch.workDate).getMonth() + 1) + '-' + new Date(sch.workDate).getDate()
-          ,
+          start: new Date(sch.workDate).getFullYear() + '-' + strMonth + '-' + new Date(sch.workDate).getDate()
         };
         this.eventsCalendar.push(calendarevent);
       });
